@@ -8,3 +8,6 @@ brew install buf
 
 The to generate files from proto files:
 buf generate
+
+Then to download the listed dependencies in go.mod file:
+go mod tidy

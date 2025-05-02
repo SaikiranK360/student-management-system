@@ -6,3 +6,7 @@ type DB struct {
 	PassWord     string
 	StudentDBUrl string
 }
+
+func (db DB) String() string {
+	return ""
+}

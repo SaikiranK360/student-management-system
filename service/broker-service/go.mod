@@ -4,9 +4,11 @@ go 1.24.2
 
 require(
 	github.com/SaikiranK360/grpc-go-practice-2/shared v0.0.0
+	github.com/SaikiranK360/grpc-go-practice-2/proto-gen v0.0.0
 )
 
 replace github.com/SaikiranK360/grpc-go-practice-2/shared => ../../shared
+replace github.com/SaikiranK360/grpc-go-practice-2/proto-gen => ../../proto-gen
 
 require (
 	github.com/bytedance/sonic v1.13.2 // indirect

@@ -24,10 +24,13 @@ func setConfig(v *viper.Viper) {
 	}
 	Config.Service = Service{
 		Broker: ServiceData{
-			Url: v.GetString("service.broker.url"),
+			Url:  v.GetString("service.broker.url"),
+			Port: v.GetString("service.broker.port"),
+			IP:   v.GetString("service.broker.ip"),
 		},
 		Student: ServiceData{
-			Url: v.GetString("service.student.url"),
+			Url:  v.GetString("service.student.url"),
+			Port: v.GetString("service.student.port"),
 		},
 	}
 }
@@ -37,7 +40,7 @@ func LoadConfig() {
 	v := viper.New()
 	v.SetConfigName("config")
 	v.SetConfigType("json")
-	v.AddConfigPath(currentUser.HomeDir + "./test-config")
+	v.AddConfigPath(currentUser.HomeDir + "/.test-config")
 
 	// Reading the configuration info from the config.json file
 	err := v.ReadInConfig()
@@ -46,4 +49,12 @@ func LoadConfig() {
 		panic(err)
 	}
 	setConfig(v)
+}
+
+/*
+Overriding the default String() method
+so that the config will not be printed anywhere
+*/
+func (c Configuration) String() string {
+	return ""
 }

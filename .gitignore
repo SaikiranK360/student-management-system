@@ -1,3 +1,4 @@
-**/gen/*
+**/proto-gen/**/*.pb.go
+**/proto-gen/**/*.pb.gw.go
 **/bin/
 **/version.html

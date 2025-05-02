@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package student;
+
+import "student/student_request.proto";
+import "student/student.proto";
+
+option go_package = "proto/student";
+
+service StudentService {
+    rpc GetStudent (StudentRequest) returns (Student);
+}

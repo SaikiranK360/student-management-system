@@ -6,8 +6,12 @@ buf --version
 If the version is not showing, install the buf:
 brew install buf
 
-The to generate files from proto files:
-buf generate
+The build any project:
+make build
 
-Then to download the listed dependencies in go.mod file:
-go mod tidy
+To run any service:
+make run
+
+To debug the code:
+If the code is opened in VS Code, (Command + Shift + P) Go:Install/Update Tools, select all and click OK.
+Then click Launch Package.

@@ -5,7 +5,6 @@ go 1.24.2
 require (
 	github.com/SaikiranK360/grpc-go-practice-2/proto-gen v0.0.0
 	github.com/SaikiranK360/grpc-go-practice-2/shared v0.0.0
-	github.com/jinzhu/gorm v1.9.16
 	google.golang.org/grpc v1.72.0
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gorm v1.26.0

@@ -1,10 +1,7 @@
 package model
 
-import "github.com/jinzhu/gorm"
-
 type StudentPO struct {
-	gorm.Model
-	Id   int64
+	Id   int64 `gorm:"primarykey"`
 	Name string
 	City string
 }

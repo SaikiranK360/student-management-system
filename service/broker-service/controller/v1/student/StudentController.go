@@ -24,7 +24,7 @@ func GetStudent(ctx *gin.Context) {
 	defer studentConn.Close()
 
 	studentServiceClient := studentproto.NewStudentServiceClient(studentConn)
-	studentCtx, cancel := context.WithTimeout(context.Background(), time.Second)
+	studentCtx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 
 	student, err := studentServiceClient.GetStudent(studentCtx, &studentproto.StudentRequest{Id: id})

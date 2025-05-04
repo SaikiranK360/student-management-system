@@ -5,6 +5,7 @@ type DB struct {
 	Username     string
 	PassWord     string
 	StudentDBUrl string
+	Charset      string
 }
 
 func (db DB) String() string {

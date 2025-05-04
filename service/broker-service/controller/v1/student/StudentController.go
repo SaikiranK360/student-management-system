@@ -22,11 +22,16 @@ func GetStudent(ctx *gin.Context) {
 		log.Fatalf("Failed to connect %v", err)
 	}
 	defer studentConn.Close()
+
 	studentServiceClient := studentproto.NewStudentServiceClient(studentConn)
 	studentCtx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
 	student, err := studentServiceClient.GetStudent(studentCtx, &studentproto.StudentRequest{Id: id})
+	if err != nil {
+		log.Fatalf("Error while fetching the student details: %+v", err)
+	}
+
 	studentResponseDTO := mapper.ConvertStudentProtoToStudentResponse(student)
 
 	ctx.JSON(http.StatusOK, studentResponseDTO)

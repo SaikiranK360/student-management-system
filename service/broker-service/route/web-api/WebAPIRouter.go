@@ -1,11 +1,11 @@
 package webapi
 
 import (
-	"github.com/SaikiranK360/grpc-go-practice-2/service/broker-service/route/web-api/v1/student"
+	v1 "github.com/SaikiranK360/grpc-go-practice-2/service/broker-service/route/web-api/v1"
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterWebAPIRoutes(rg *gin.RouterGroup) {
-	studentRoutes := rg.Group("/student")
-	student.RegisterStudentRoutesV1(studentRoutes)
+func RegisterWebAPIRoutes(router *gin.RouterGroup) {
+	webAPIRoutes := router.Group("/web-api")
+	v1.RegisterV1Routes(webAPIRoutes)
 }

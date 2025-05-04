@@ -5,7 +5,10 @@ go 1.24.2
 require (
 	github.com/SaikiranK360/grpc-go-practice-2/proto-gen v0.0.0
 	github.com/SaikiranK360/grpc-go-practice-2/shared v0.0.0
+	github.com/jinzhu/gorm v1.9.16
 	google.golang.org/grpc v1.72.0
+	gorm.io/driver/mysql v1.5.7
+	gorm.io/gorm v1.26.0
 )
 
 replace github.com/SaikiranK360/grpc-go-practice-2/shared => ../../shared
@@ -13,8 +16,12 @@ replace github.com/SaikiranK360/grpc-go-practice-2/shared => ../../shared
 replace github.com/SaikiranK360/grpc-go-practice-2/proto-gen => ../../proto-gen
 
 require (
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
+	github.com/go-sql-driver/mysql v1.9.2 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.3 // indirect
 	github.com/sagikazarmark/locafero v0.7.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect

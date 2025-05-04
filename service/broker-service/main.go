@@ -13,8 +13,7 @@ func main() {
 
 	router.SetTrustedProxies([]string{config.Config.Service.Broker.IP})
 
-	webAPIRoutes := router.Group("/web-api")
-	webapi.RegisterWebAPIRoutes(webAPIRoutes)
+	webapi.RegisterWebAPIRoutes(&router.RouterGroup)
 
 	router.Run(config.Config.Service.Broker.Port)
 }

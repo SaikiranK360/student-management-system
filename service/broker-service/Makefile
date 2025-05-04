@@ -11,3 +11,6 @@ build:
 	printf "<html>\n<body>\n<p>Environment: $(ENVIRONMENT)</p>\n<p>Branch: $(BRANCH)</p>\n<p>Commit id: $(COMMIT_ID)</p>\n<p>Commit message: $(COMMIT_MESSAGE)</p>\n<p>Build Time: $(BUILD_TIME)</p>\n</body>\n</html>" > version.html && \
 	go mod tidy
 	go build -o ./bin/;
+
+run: build
+	./bin/broker-service

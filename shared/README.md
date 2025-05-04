@@ -1,0 +1,1 @@
+I have created this shared library so that a logic can be shared between microservices.

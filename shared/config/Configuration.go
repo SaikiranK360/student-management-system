@@ -21,6 +21,7 @@ func setConfig(v *viper.Viper) {
 		Username:     v.GetString("db.username"),
 		PassWord:     v.GetString("db.password"),
 		StudentDBUrl: v.GetString("db.studentDbUrl"),
+		Charset:      v.GetString("db.charset"),
 	}
 	Config.Service = Service{
 		Broker: ServiceData{

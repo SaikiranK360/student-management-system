@@ -7,5 +7,7 @@ import (
 
 func RegisterStudentRoutesV1(rg *gin.RouterGroup) {
 	studentRoutes := rg.Group("/student")
+
 	studentRoutes.GET("/:id", student.GetStudent)
+	studentRoutes.POST("/", student.CreateStudent)
 }

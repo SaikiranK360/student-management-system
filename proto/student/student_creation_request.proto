@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package student;
+
+option go_package = "proto/student";
+
+message StudentCreationRequest {
+    string name = 1;
+    string city = 2;
+}

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package student;
 
+import "google/protobuf/empty.proto";
+import "student/student_creation_request.proto";
 import "student/student_request.proto";
 import "student/student.proto";
 
@@ -9,4 +11,5 @@ option go_package = "proto/student";
 
 service StudentService {
     rpc GetStudent (StudentRequest) returns (Student);
+    rpc CreateStudent(StudentCreationRequest) returns (google.protobuf.Empty);
 }

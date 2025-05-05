@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	webapi "github.com/SaikiranK360/grpc-go-practice-2/service/broker-service/route/web-api"
 	"github.com/SaikiranK360/grpc-go-practice-2/shared/config"
 	"github.com/gin-gonic/gin"
@@ -15,5 +17,10 @@ func main() {
 
 	webapi.RegisterWebAPIRoutes(&router.RouterGroup)
 
-	router.Run(config.Config.Service.Broker.Port)
+	log.Printf("Listening at port %+v", config.Config.Service.Broker.Port)
+	err := router.Run(config.Config.Service.Broker.Port)
+
+	if err != nil {
+		log.Fatalf("%+v", err.Error())
+	}
 }

@@ -16,3 +16,10 @@ func ConvertStudentPOToStudentProto(studentPO *model.StudentPO) *student.Student
 		City: studentPO.City,
 	}
 }
+
+func ConvertStudentCreationRequestProtoToStudentPO(student *student.StudentCreationRequest) *model.StudentPO {
+	return &model.StudentPO{
+		Name: student.GetName(),
+		City: student.GetCity(),
+	}
+}

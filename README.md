@@ -6,6 +6,11 @@ buf --version
 If the version is not showing, install the buf:
 brew install buf
 
+To just generate the files corresponding to the proto files written:
+buf generate
+
+To see the structure of methods, check proto-gen/folder/filename_grpc.pb.go
+
 The build any project:
 make build
 

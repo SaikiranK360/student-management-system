@@ -12,3 +12,10 @@ func ConvertStudentProtoToStudentResponse(s *studentproto.Student) *api.StudentR
 		City: s.GetCity(),
 	}
 }
+
+func ConvertStudentRequestToStudentRequestProto(s *api.StudentCreationRequestDTO) *studentproto.StudentCreationRequest {
+	return &studentproto.StudentCreationRequest{
+		Name: s.Name,
+		City: s.City,
+	}
+}

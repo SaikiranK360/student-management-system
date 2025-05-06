@@ -1,20 +1,16 @@
-package interceptor
+package customlog
 
 import (
 	"context"
 	"log"
 
-	customlog "github.com/SaikiranK360/grpc-go-practice-2/shared/custom-log"
 	"google.golang.org/grpc"
 )
 
 var GRPCRequestLogger *log.Logger
 
-/*
-I am not putting this logic in shared since grpc dependency doesn't have to be there in shared.
-*/
 func InitGRPCRequestLogger(pathName string) {
-	logFile := customlog.GetLogFile(pathName)
+	logFile := GetLogFile(pathName)
 	GRPCRequestLogger = log.New(logFile, "", log.LstdFlags|log.Lshortfile)
 }
 

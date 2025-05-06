@@ -8,7 +8,6 @@ import (
 	studentproto "github.com/SaikiranK360/grpc-go-practice-2/proto-gen/student"
 	"github.com/SaikiranK360/grpc-go-practice-2/service/student-service/db"
 	"github.com/SaikiranK360/grpc-go-practice-2/service/student-service/handler"
-	"github.com/SaikiranK360/grpc-go-practice-2/service/student-service/interceptor"
 	"github.com/SaikiranK360/grpc-go-practice-2/shared/config"
 	customlog "github.com/SaikiranK360/grpc-go-practice-2/shared/custom-log"
 	"google.golang.org/grpc"
@@ -29,7 +28,7 @@ func main() {
 	log.SetOutput(systemLogFile)
 
 	requestLogFilePath := currentUser.HomeDir + "/requestlogs/student-service.log"
-	interceptor.InitGRPCRequestLogger(requestLogFilePath)
+	customlog.InitGRPCRequestLogger(requestLogFilePath)
 
 	// Initiate the DB connection
 	db.InitiateMySQLDBConnection()
@@ -42,7 +41,7 @@ func main() {
 	}
 	log.Println("Listening at port ", config.Config.Service.Student.Port)
 
-	server := grpc.NewServer(grpc.UnaryInterceptor(interceptor.LoggingInterceptor))
+	server := grpc.NewServer(grpc.UnaryInterceptor(customlog.LoggingInterceptor))
 	studentproto.RegisterStudentServiceServer(server, &handler.StudentHandler{})
 
 	if err = server.Serve(lis); err != nil {

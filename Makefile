@@ -9,6 +9,7 @@ ENVIRONMENT := $(shell cat $(ENV_FILE) | jq -r .environment)
 
 build:
 	cd proto && buf generate
+	cd ../../shared && go mod tidy
 	@for service in $(SERVICES); do \
 		cd service/$$service && \
 				printf "<html>\n<body>\n<p>Environment: $(ENVIRONMENT)</p>\n<p>Branch: $(BRANCH)</p>\n<p>Commit id: $(COMMIT_ID)</p>\n<p>Commit message: $(COMMIT_MESSAGE)</p>\n<p>Build Time: $(BUILD_TIME)</p>\n</body>\n</html>" > version.html && \
